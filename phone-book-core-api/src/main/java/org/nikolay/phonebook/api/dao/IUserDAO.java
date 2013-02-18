@@ -8,11 +8,12 @@ import org.nikolay.phonebook.api.entity.User;
 
 /**
  * @author Nikolay Dagil
- * 
+ * @version 1.0.0
  */
+
 public interface IUserDAO extends IBaseDAO<User, Long> {
 
-	public Boolean isExistsByUsername(String login);
+  public Boolean isExistsByUsername(String login);
 
-	public Boolean isExistsByEmail(String email);
+  public Boolean isExistsByEmail(String email);
 }

@@ -7,35 +7,35 @@ import java.util.List;
 
 /**
  * @author Nikolay Dagil
- * 
+ * @version 1.0.0
  */
 public interface User {
 
-	public Long getId();
+  public Long getId();
 
-	public void setId(Long id);
+  public void setId(Long id);
 
-	public String getFirstName();
+  public String getFirstName();
 
-	public void setFirstName(String firstName);
+  public void setFirstName(String firstName);
 
-	public String getLastName();
+  public String getLastName();
 
-	public void setLastName(String lastName);
+  public void setLastName(String lastName);
 
-	public String getUsername();
+  public String getUsername();
 
-	public void setUsername(String username);
+  public void setUsername(String username);
 
-	public String getEmail();
+  public String getEmail();
 
-	public void setEmail(String email);
+  public void setEmail(String email);
 
-	public String getPassword();
+  public String getPassword();
 
-	public void setPassword(String password);
+  public void setPassword(String password);
 
-	public List<Phone> getPhones();
+  public List<Phone> getPhones();
 
-	public void setPhones(List<Phone> phones);
+  public void setPhones(List<Phone> phones);
 }

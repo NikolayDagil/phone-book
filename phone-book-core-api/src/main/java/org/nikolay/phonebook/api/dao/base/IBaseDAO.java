@@ -8,17 +8,17 @@ import java.util.List;
 
 /**
  * @author Nikolay Dagil
- * 
+ * @version 1.0.0
  */
 public interface IBaseDAO<I, PK extends Serializable> {
 
-	public void save(I i);
+  public void save(I i);
 
-	public void update(I i);
+  public void update(I i);
 
-	public void delete(I i);
+  public void delete(I i);
 
-	public I getId(Long PK);
+  public I getId(Long PK);
 
-	public List<I> getAll();
+  public List<I> getAll();
 }
