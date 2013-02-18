@@ -3,7 +3,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Phone Book :: Home Page</title>
+		<title>Phone Book :: ERROR</title>
 	</head>
 	<body>
 	
