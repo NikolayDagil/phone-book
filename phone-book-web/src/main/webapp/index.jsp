@@ -6,6 +6,6 @@
 		<title>Phone Book :: Home Page</title>
 	</head>
 	<body>
-	
+		<jsp:forward page="/users" />
 	</body>
 </html>
