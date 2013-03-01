@@ -5,9 +5,9 @@ package org.nikolay.phonebook.dpl.entity;
 
 import java.io.Serializable;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -32,23 +32,23 @@ public class PhoneEntity implements Phone, Serializable {
   @Column(name = "id", unique = true, nullable = false)
   private Long id;
 
-  @ManyToOne(targetEntity = UserEntity.class, cascade = CascadeType.ALL)
+  @ManyToOne(fetch = FetchType.LAZY, targetEntity = UserEntity.class)
   @JoinColumn(name = "user_fk")
   private User user;
 
   @Column(name = "type")
   private String type;
 
-  @Column(name = "mobile")
-  private Integer mobile;
+  @Column(name = "number")
+  private String number;
 
   public PhoneEntity() {}
 
-  public PhoneEntity(Long id, User user, String type, Integer mobile) {
+  public PhoneEntity(Long id, User user, String type, String number) {
     this.id = id;
     this.user = user;
     this.type = type;
-    this.mobile = mobile;
+    this.number = number;
   }
 
   @Override
@@ -82,19 +82,13 @@ public class PhoneEntity implements Phone, Serializable {
   }
 
   @Override
-  public Integer getMobile() {
-    return mobile;
+  public String getNumber() {
+    return number;
   }
 
   @Override
-  public void setMobile(Integer mobile) {
-    this.mobile = mobile;
+  public void setNumber(String number) {
+    this.number = number;
   }
 
-  @Override
-  public String toString() {
-    return "PhoneEntity [" + (id != null ? "id=" + id + ", " : "")
-        + (user != null ? "user=" + user + ", " : "") + (type != null ? "type=" + type + ", " : "")
-        + (mobile != null ? "mobile=" + mobile : "") + "]";
-  }
 }

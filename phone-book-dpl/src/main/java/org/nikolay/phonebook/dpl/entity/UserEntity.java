@@ -6,8 +6,10 @@ package org.nikolay.phonebook.dpl.entity;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -46,7 +48,7 @@ public class UserEntity implements User, Serializable {
   @Column(name = "password", nullable = false)
   private String password;
 
-  @OneToMany(mappedBy = "user", targetEntity = PhoneEntity.class)
+  @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY, targetEntity = PhoneEntity.class)
   private List<Phone> phones;
 
   public UserEntity() {}
@@ -130,17 +132,6 @@ public class UserEntity implements User, Serializable {
   @Override
   public void setPhones(List<Phone> phones) {
     this.phones = phones;
-  }
-
-  @Override
-  public String toString() {
-    return "UserEntity [" + (id != null ? "id=" + id + ", " : "")
-        + (firstName != null ? "firstName=" + firstName + ", " : "")
-        + (lastName != null ? "lastName=" + lastName + ", " : "")
-        + (username != null ? "username=" + username + ", " : "")
-        + (email != null ? "email=" + email + ", " : "")
-        + (password != null ? "password=" + password + ", " : "")
-        + (phones != null ? "phones=" + phones : "") + "]";
   }
 
 }

@@ -56,11 +56,11 @@ public class PhoneRegistrationServlet extends HttpServlet {
   protected void doPost(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
 
-    String mobile = request.getParameter("mobile");
+    String number = request.getParameter("number");
     String type = request.getParameter("type");
     String userId = request.getParameter("userId");
 
-    if (!mobile.isEmpty() && !type.isEmpty() && !userId.isEmpty()) {
+    if (!number.isEmpty() && !type.isEmpty() && !userId.isEmpty()) {
 
       IDAOFactory daoFactory = new DAOFactory();
       Object daoObjectForUser = daoFactory.getDAO("UserDAO");
@@ -72,11 +72,8 @@ public class PhoneRegistrationServlet extends HttpServlet {
       Phone phone = new PhoneEntity();
       phone.setType(type);
       phone.setUser(user);
-
-      if (mobile != "") {
-        phone.setMobile(Integer.parseInt(mobile));
-      }
-
+      phone.setNumber(number);
+      
       phoneDAO.save(phone);
 
       RequestDispatcher requestDispatcher = request.getRequestDispatcher(PageConstant.USER);

@@ -20,7 +20,6 @@ import org.nikolay.phonebook.dpl.entity.UserEntity;
 public class PhoneDAOTest {
 
   private static final String TEST_A_STR = "TEST A";
-  private static final Integer TEST_B_INT = 123;
 
   PhoneDAO phoneDAO = new PhoneDAO();
 
@@ -58,7 +57,7 @@ public class PhoneDAOTest {
      */
 
     Phone phone = new PhoneEntity();
-    phone.setMobile(TEST_B_INT);
+    phone.setNumber(TEST_A_STR);
     phone.setType(TEST_A_STR);
     phone.setUser(user);
 
@@ -102,7 +101,7 @@ public class PhoneDAOTest {
      * create phone
      */
     Phone phone = new PhoneEntity();
-    phone.setMobile(TEST_B_INT);
+    phone.setNumber(TEST_A_STR);
     phone.setType(TEST_A_STR);
     phone.setUser(user);
 
@@ -141,7 +140,7 @@ public class PhoneDAOTest {
     user.setPassword(TEST_A_STR);
 
     Phone phone = new PhoneEntity();
-    phone.setMobile(TEST_B_INT);
+    phone.setNumber(TEST_A_STR);
     phone.setType(TEST_A_STR);
     phone.setUser(user);
 

@@ -1,8 +1,6 @@
 package org.nikolay.phonebook.web.servlet;
 
 import java.io.IOException;
-import java.util.Iterator;
-import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -70,44 +68,20 @@ public class UserRegistrationServlet extends HttpServlet {
         user.setLastName(lastName);
         user.setFirstName(firstName);
         userDAO.save(user);
-
-        Long userId = user.getId();
-
-        @SuppressWarnings("rawtypes")
-        Map param_map = request.getParameterMap();
-
-        if (param_map == null) {
-          throw new ServletException("getParameterMap returned null in " + getClass().getName());
-        }
-
-        @SuppressWarnings("rawtypes")
-        Iterator iterator = param_map.entrySet().iterator();
-        while (iterator.hasNext()) {
-          @SuppressWarnings("rawtypes")
-          Map.Entry me = (Map.Entry) iterator.next();
-
-          String[] arr = (String[]) me.getValue();
-          for (int i = 0; i < arr.length; i++) {
-            System.out.println(arr[i]);
-            if (i > 0 && i != arr.length - 1) {
-              System.out.println(", ");
-            }
-          }
-        }
-
+        
         RequestDispatcher requestDispatcher = request.getRequestDispatcher(PageConstant.USER);
-        request.setAttribute("userId", userId);
+        request.setAttribute("user", user);
         requestDispatcher.forward(request, response);
 
       } else {
         RequestDispatcher requestDispatcher =
-            request.getRequestDispatcher(PageConstant.PHONE_REGISTRATION);
+            request.getRequestDispatcher(PageConstant.USER_REGISTRATION);
         requestDispatcher.forward(request, response);
       }
 
     } else {
       RequestDispatcher requestDispatcher =
-          request.getRequestDispatcher(PageConstant.PHONE_REGISTRATION);
+          request.getRequestDispatcher(PageConstant.USER_REGISTRATION);
       requestDispatcher.forward(request, response);
     }
 

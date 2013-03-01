@@ -1,6 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib  prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -16,7 +15,7 @@
 				<table>
 					<tr>
 						<td>Number</td>
-						<td><input type="number" name="mobile"></td>
+						<td><input type="tel" name="number"></td>
 					</tr>
 					<tr>
 						<td>Type:</td>

@@ -87,7 +87,6 @@ public abstract class BaseDAO<I, T extends I, PK extends Serializable> {
   /*
    * get id number of object
    */
-
   public I getId(Long PK) {
     I i = null;
 
@@ -122,6 +121,8 @@ public abstract class BaseDAO<I, T extends I, PK extends Serializable> {
       transaction = session.beginTransaction();
 
       list = session.createQuery("FROM " + entityClass.getName()).list();
+      System.out.println(list);
+
       transaction.commit();
     } catch (HibernateException e) {
       transaction.rollback();

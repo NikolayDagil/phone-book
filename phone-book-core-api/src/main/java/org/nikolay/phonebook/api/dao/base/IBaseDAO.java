@@ -10,7 +10,7 @@ import java.util.List;
  * @author Nikolay Dagil
  * @version 1.0.0
  */
-public interface IBaseDAO<I, PK extends Serializable> {
+public interface IBaseDAO<I, ID extends Serializable> {
 
   public void save(I i);
 
@@ -18,7 +18,7 @@ public interface IBaseDAO<I, PK extends Serializable> {
 
   public void delete(I i);
 
-  public I getId(Long PK);
+  public I getId(Long ID);
 
   public List<I> getAll();
 }

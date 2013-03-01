@@ -12,23 +12,22 @@ import org.hibernate.cfg.AnnotationConfiguration;
  */
 public class HibernateUtil {
 
-	private static final SessionFactory sessionFactory;
+  private static final SessionFactory sessionFactory;
 
-	static {
-		try {
-			sessionFactory = new AnnotationConfiguration().configure()
-					.buildSessionFactory();
-		} catch (Throwable e) {
-			System.err.println(e);
-			throw new ExceptionInInitializerError(e);
-		}
-	}
+  static {
+    try {
+      sessionFactory = new AnnotationConfiguration().configure().buildSessionFactory();
+    } catch (Throwable e) {
+      System.err.println(e);
+      throw new ExceptionInInitializerError(e);
+    }
+  }
 
-	/**
-	 * @return the sessionfactory
-	 */
-	public static SessionFactory getSessionFactory() {
-		return sessionFactory;
-	}
+  /**
+   * @return the sessionfactory
+   */
+  public static SessionFactory getSessionFactory() {
+    return sessionFactory;
+  }
 
 }

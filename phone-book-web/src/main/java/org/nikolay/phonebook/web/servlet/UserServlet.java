@@ -10,6 +10,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.nikolay.phonebook.api.dao.IUserDAO;
+import org.nikolay.phonebook.api.dao.factory.IDAOFactory;
+import org.nikolay.phonebook.api.entity.User;
+import org.nikolay.phonebook.dpl.dao.factory.DAOFactory;
+import org.nikolay.phonebook.dpl.entity.UserEntity;
 import org.nikolay.phonebook.web.constant.PageConstant;
 
 /**
@@ -26,11 +31,23 @@ public class UserServlet extends HttpServlet {
    */
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
+
+
     Enumeration parameterNames = request.getParameterNames();
 
     String resultPage = null;
     if (parameterNames.hasMoreElements() && !request.getParameter("userId").isEmpty()) {
-      request.setAttribute("userId", request.getParameter("userId"));
+
+      String userId = request.getParameter("userId");
+
+      IDAOFactory daoFactory = new DAOFactory();
+      Object daoObjectForUser = daoFactory.getDAO("UserDAO");
+      IUserDAO userDAO = (IUserDAO) daoObjectForUser;
+
+      User user = new UserEntity();
+      user.getPhones();
+      user = userDAO.getId(Long.parseLong(userId));
+      request.setAttribute("user", user);
       resultPage = PageConstant.USER;
     } else {
       resultPage = PageConstant.USER_REGISTRATION;

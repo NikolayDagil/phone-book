@@ -22,7 +22,7 @@ public interface Phone {
 
   public void setType(String type);
 
-  public Integer getMobile();
+  public String getNumber();
 
-  public void setMobile(Integer mobile);
+  public void setNumber(String number);
 }
